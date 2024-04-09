@@ -1,0 +1,47 @@
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .carousel-image {
+    width: 100%;
+    height: 525px;
+    object-fit: cover; /* Adjust image fitting as needed */
+    transition: transform 0.5s ease-in-out; /* Add transition */
+  }
+  
+  .carousel-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%; 
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .carousel-buttons button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    height: 70px;
+    border-radius: 5px;
+    background-color: rgb(7, 7, 7);
+    opacity: 0.5;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+  
+  .carousel-buttons button:hover {
+    opacity: 0.7;
+  }
+  
+  .carousel-buttons button:first-child { /* Left button */
+     left: 20px; 
+  }
+  
+  .carousel-buttons button:last-child { /* Right button */
+    right: 20px; 
+  }
+  
