@@ -3,7 +3,7 @@ mongoose.set('strictQuery', false)
 
 const connectDatabase = () => {
   mongoose
-    .connect(process.env.DB_URI, {
+    .connect('mongodb+srv://smitgoyani:smitgoyani222@cluster0.zgvpkqd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
