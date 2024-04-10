@@ -23,7 +23,7 @@
 
 #shop__product_1 .shop__pro_container{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     gap: 20px;
     flex-wrap: wrap;
 }

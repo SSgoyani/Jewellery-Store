@@ -5,6 +5,11 @@ header {
   position: relative;
   z-index: 44;
 }
+
+.rating_box{
+  margin-left: -15px;
+}
+
 .input-group {
   border-radius: 120px;
   height: 10px;

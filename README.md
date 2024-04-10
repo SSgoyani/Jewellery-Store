@@ -1,4 +1,4 @@
-# Hatey-Bazarey-MERN
+# Jewellery Store
 Full-Stack Ecommerce with Admin Dashboard & stripe Payment Gateway.
 
 ## Demo
