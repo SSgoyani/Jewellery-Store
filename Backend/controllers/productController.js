@@ -10,12 +10,9 @@ exports.newProduct = catchAsyncErrors(async (req, res, next) => {
   // for admin push images in cloudinary
 
   let images = []
-
-  // console.log("Type  of", typeof(req.body.images));
     
     const string1 = JSON.stringify(req.body.images);
 
-  console.log(typeof(string1));
   // if (typeof req.body.images === 'string') {
     if (typeof string1 === 'string') {
 
@@ -25,25 +22,19 @@ exports.newProduct = catchAsyncErrors(async (req, res, next) => {
       images = req.body.images 
     // if multiple images then else will be executed
   }
-console.log("Images are : ",images);
   let imagesLinks = [];
-  // console.log("1243");
 
-  console.log("Img Length", images.length);
   for (let i = 0; i < images.length; i++) {
-    console.log("Images : ",images[i].url);
     try {
 
       const result = await cloudinary.v2.uploader.upload(images[i].url, {
         folder: 'products'
       });
-      // console.log("Result", result);
     
       imagesLinks.push({
           public_id: result.public_id,
           url: result.secure_url
       });
-      // console.log("Image Links" , imagesLinks);
     } catch (error) {
       console.error("Error uploading image:", error);
     }
@@ -51,10 +42,7 @@ console.log("Images are : ",images);
   }
   req.body.images = imagesLinks
   req.body.user = req.user.id;
-  // console.log("Before Imagelink");
-  // console.log("Before Imagelink 123456",req.body);
   const product = await Product.create(req.body);
-  console.log("Prodcut",product);
   res.status(201).json({
     success: true,
     product,
@@ -240,8 +228,6 @@ exports.getProductReviews = catchAsyncErrors(async (req, res, next) => {
 exports.deleteReview = catchAsyncErrors(async (req, res, next) => {
 
   const product = await Product.findById(req.query.productId);
-
-  // console.log(product);
 
   const reviews = product.reviews.filter(review => review._id.toString() !== req.query.id.toString());
 

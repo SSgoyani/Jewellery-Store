@@ -1,5 +1,5 @@
 {
-  "name": "hatey-bazarey",
+  "name": "jewellery-store",
   "version": "1.0.0",
   "description": "E-commerce application",
   "main": "server.js",
@@ -9,7 +9,7 @@
     "prod": "SET NODE_ENV=PRODUCTION& nodemon Backend/server",
     "seeder": "node Backend/utils/seeder.js"
   },
-  "author": "Anupam Debnath",
+  "author": "Smit Goyani",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",

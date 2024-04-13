@@ -17,16 +17,6 @@ exports.newOrder = catchAsyncErrors(async (req, res, next) => {
         orderStatus
         
     } = req.body;
-    console.log({
-        orderItems,
-        shippingInfo,
-        itemsPrice,
-        taxPrice,
-        shippingPrice,
-        totalPrice,
-        paymentInfo,
-        orderStatus       
-    });
 
     const order = await Order.create({
         orderItems : orderItems,
@@ -41,14 +31,11 @@ exports.newOrder = catchAsyncErrors(async (req, res, next) => {
         user: req.user._id
     })
 
-    console.log(order)
     if(!order){
         console.log("Order not found")
     }
-    console.log(order);
 
     await order.save()
-    // console.log("Jay",order);
 
     res.status(200).json({
         success: true,

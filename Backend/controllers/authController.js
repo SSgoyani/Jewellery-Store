@@ -33,7 +33,6 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
 // Login User  =>  /a[i/v1/login
 exports.loginUser = catchAsyncErrors(async (req, res, next) => {
   const { email, password } = req.body;
-  console.log(req.body);
   // Checks if email and password is entered by user
   if (!email || !password) {
     return next(new ErrorHandler("Please enter email & password", 400));
@@ -41,7 +40,6 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
 
   // Finding user in database
   const user = await User.findOne({ email }).select("+password");
-  console.log("User is : " , user);
 
   if (!user) {
     return next(new ErrorHandler("Invalid Email or Password", 401));
@@ -77,7 +75,7 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
   try {
     await sendEmail({
       email: user.email,
-      subject: "Hatey Bazarey Password Recovery",
+      subject: "Jewellery Store Password Recovery",
       message,
     });
 
@@ -192,7 +190,7 @@ exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    message: "User profile update successfully",
+    message: "User Profile Updated Successfully",
   });
 });
 
